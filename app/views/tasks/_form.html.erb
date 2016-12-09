@@ -1,0 +1,18 @@
+<hr>
+<%= form_for @task, class: "form-horizontal" do |f| %>
+
+	<div class="form-group">
+		<%= f.label :deadline,class: "col-sm-2 control-label" %>
+		<%= f.date_field :deadline,class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :description,class: "col-sm-2 control-label" %>
+		<%= f.text_area :description,class: "form-control" %>
+	</div>	
+	
+	<%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
+
+<% end %>
+
+

@@ -3,14 +3,14 @@
  ## Key requirement: create web app that can crate task edit and comment
 
 ## Models:
--  Task -> description:text deadline:date priority:integer
+-  X Task -> description:text deadline:date priority:integer
 -  Comment -> content:text
--  User -> Devise
+-  X User -> Devise
 
 
 ## Feature: 
-- User registration with email password
-- Task manipulation, inline editing
+- X User registration with email password
+- Task manipulation,  X inline editing
 - Comment assosiated with task and inline editing
 - Task order by priority
 - Task searching with Ajax
