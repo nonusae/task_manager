@@ -1,0 +1,19 @@
+<div class = 'logo'>
+	<h1>Task Maneger</h1>
+</div>
+
+<ul class="custom-nav nav nav-tabs">
+	<li class="active">
+		<%= link_to "New", "#" %>
+	</li>
+	<li class="col-xs-offset-0">
+		<%= form_tag "", class: "navbar-form navbar-left" do %>
+		<div class="input-group">
+			<%= text_field_tag :search,nil,class: "form-control" %>
+			<span class="input-group-btn">
+				<%= submit_tag 'Add Task', class: 'btn btn-primary' %>
+			</span>	
+		</div>	
+		<% end %>
+	</li>
+</ul>
