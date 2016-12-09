@@ -1,15 +1,18 @@
 <tr>
-	<td>
-		<%= task.id %>
+	<td class="text-center">
+		<span class= "glyphicon glyphicon-th-list"></span>
 	</td>
 	<td>
 		<%= truncate(task.description) %>
 	</td>
-	<td>
-		<%= link_to 'Edit', "#" %>
+	<td class="text-center">
+		<%= link_to '', "#", class: "glyphicon glyphicon-comment" %>
 	</td>
-	<td>
-		<%= link_to 'Delete', "#"%>
+	<td class="text-center">
+		<%= link_to '', "#", class: "glyphicon glyphicon-pencil" %>
+	</td>
+	<td class="text-center">
+		<%= link_to '', "#", class: "glyphicon glyphicon-trash" %>
 	</td>					
 </tr>
 
