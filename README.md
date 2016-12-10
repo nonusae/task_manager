@@ -13,7 +13,7 @@
 - X Task manipulation, inline editing
 - X Comment assosiated with task and inline editing
 - X Task order by priority
-- Task searching with Ajax
+- X Task searching with Ajax
 
 
 ## UI:
