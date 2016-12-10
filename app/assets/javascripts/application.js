@@ -17,3 +17,11 @@
 //= require best_in_place
 //= require turbolinks
 //= require_tree .
+
+
+$(function() {
+  $("#tasks_search input").keyup(function() {
+    $.get($("#tasks_search").attr("action"), $("#tasks_search").serialize(), null, "script");
+    return false;
+  });
+});

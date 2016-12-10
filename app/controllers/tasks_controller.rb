@@ -3,7 +3,7 @@ before_action :set_task, only: [:show,:edit,:update,:destroy]
 respond_to :html, :json
 
 	def index
-		@tasks = Task.all.order('priority asc')
+		@tasks = Task.search(params[:search]).order('priority asc')
 	end
 
 	def edit

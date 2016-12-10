@@ -5,7 +5,7 @@
 	<% if @comments.count > 0 %>
 		<% @comments.each do |comment| %>
 			<%= best_in_place comment, :content, as: :textarea %>
-			<%= link_to '', comment_path(comment),method: :delete, id: "delete_comment_#{comment.id}_from_index", data: { confirm:"Are you sure ?" } , class: "glyphicon glyphicon-trash" %>
+			<%= link_to '', comment_path(comment), remote: true,method: :delete, id: "delete_comment_#{comment.id}_from_index", data: { confirm:"Are you sure ?" } , class: "glyphicon glyphicon-trash" %>
 			<div class="col-md-offset-10">
 				<span> <%=link_to comment.user.email,"#" %></span>
 			</div>

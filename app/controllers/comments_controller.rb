@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 before_action :set_comment, only: [:show,:edit,:update,:destroy]
-respond_to :html, :json
+before_action :set_comments_by_task, only: [:create,:comment_by_task]
+respond_to :html, :json ,:js
 
 	def new
 		@comment = Comment.new()
@@ -10,13 +11,11 @@ respond_to :html, :json
 		@comment = Comment.new(comment_params)
 		@comment.user_id = current_user.id #method provided by devise 
 
-		@task_id = comment_params[:task_id]
-		@comments = @comments = Comment.where(:task_id => @task_id) 
-
 		if @comment.save
-			redirect_to tasks_path , notice: 'Your post was create succesfully'
+			# redirect_to tasks_path , notice: 'Your post was create succesfully'
+			render :file => "comments/comments_refresher.js.erb" 
 		else
-			render  :new
+			render :file => "comments/comments_refresher.js.erb"		
 		end		
 	end
 
@@ -28,8 +27,6 @@ respond_to :html, :json
 	end
 
 	def comment_by_task
-		@task_id = comment_params[:task_id]
-		@comments = Comment.where(:task_id => @task_id)
 		@comment = Comment.new(:task_id => @task_id)
 	end
 
@@ -42,15 +39,27 @@ respond_to :html, :json
 	end
 
 	def destroy
+		@task_id = @comment.task_id # destroy method cannot use set_comment_by_tasks because we use defulat RestRouting
+		@comments = Comment.where(:task_id => @task_id)
 		@comment.destroy
-		redirect_to tasks_path, notice: 'Your comment was deleted succesfully'
+		render :file => "comments/comments_refresher.js.erb" , notice: 'Your comment was deleted succesfully'
 	end
+
+
+
+
+
 
 	private
 
 	def comment_params
 		params.require(:comment).permit(:content,:task_id)
 	end	
+
+	def set_comments_by_task
+		@task_id = comment_params[:task_id]
+		@comments = @comments = Comment.where(:task_id => @task_id)
+	end
 
 	def  set_comment
 		@comment = Comment.find(params[:id])

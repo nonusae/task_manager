@@ -1,0 +1,2 @@
+$("#task_row_<%= @task_id %>").children("td").remove();
+$("#task_row_<%= @task_id %>").append("<%= j (render 'comments/comment_list_by_task') %>");

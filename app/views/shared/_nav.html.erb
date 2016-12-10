@@ -3,7 +3,7 @@
 </div>
 
 <div class="nav navbar-default">     
-     <%= form_tag "", class: "navbar-form" do %>
+     <%= form_tag tasks_path , :method => 'get',id: "tasks_search", class: "navbar-form" do %>
         <div class="form-group" style="display:inline;">
           <div class="input-group" style="display:table;">
             <span class="input-group-addon" style="width:1%;">

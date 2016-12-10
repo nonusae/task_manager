@@ -9,4 +9,13 @@ class Task < ApplicationRecord
 			return "late-task"
 		end
 	end
+
+	def self.search(term)
+		if term 
+			where("description LIKE ?","%#{term}%")
+		else
+			all
+		end
+	end
+
 end
