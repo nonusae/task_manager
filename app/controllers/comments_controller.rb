@@ -10,8 +10,11 @@ respond_to :html, :json
 		@comment = Comment.new(comment_params)
 		@comment.user_id = current_user.id #method provided by devise 
 
+		@task_id = comment_params[:task_id]
+		@comments = @comments = Comment.where(:task_id => @task_id) 
+
 		if @comment.save
-			redirect_to tasks_path, notice: 'Your post was create succesfully'
+			redirect_to tasks_path , notice: 'Your post was create succesfully'
 		else
 			render  :new
 		end		
