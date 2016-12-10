@@ -1,0 +1,11 @@
+
+
+
+
+if($("#add-on-text-<%= @task_id %>").length > 0) {
+	$("#task_row_<%= @task_id %>").children("td").remove();
+}
+else
+{
+	$("#task_row_<%= @task_id %>").append("<%= j (render 'comments/comment_list_by_task') %>");
+}

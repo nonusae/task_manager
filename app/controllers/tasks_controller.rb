@@ -28,7 +28,7 @@ respond_to :html, :json
 
 	def create
 		@task = Task.new(task_params)
-		# @task.user_id = current_user.id #method provided by devise 
+		@task.user_id = current_user.id #method provided by devise 
 
 		if @task.save
 			redirect_to tasks_path, notice: 'Your post was create succesfully'
