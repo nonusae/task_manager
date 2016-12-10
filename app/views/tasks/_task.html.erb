@@ -1,4 +1,4 @@
-<tr>
+<tr class= "<%= task.is_late? %>">
 	<td class="text-center">
 		<span class= "glyphicon glyphicon-th-list"></span>
 	</td>
@@ -12,7 +12,7 @@
 		<%= link_to '', edit_task_path(task), class: "glyphicon glyphicon-pencil" %>
 	</td>
 	<td class="text-center">
-		<%= link_to '', "#", class: "glyphicon glyphicon-trash" %>
+		<%= link_to '', task_path(task),method: :delete, id: "delete_task_#{task.id}_from_index", data: { confirm:"Are you sure ?" } , class: "glyphicon glyphicon-trash" %>
 	</td>					
 </tr>
 

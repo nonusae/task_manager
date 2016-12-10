@@ -3,7 +3,7 @@ before_action :set_task, only: [:show,:edit,:update,:destroy]
 respond_to :html, :json
 
 	def index
-		@tasks = Task.all
+		@tasks = Task.all.order('priority asc')
 	end
 
 	def edit
@@ -18,17 +18,30 @@ respond_to :html, :json
 	end
 
 	def destroy
+		@task.destroy
+		redirect_to tasks_path, notice: 'Your task was deleted succesfully'	
 	end
 
 	def new
-		@task = Task.new
+		@task = Task.new(:priority => 10)
+	end
+
+	def create
+		@task = Task.new(task_params)
+		# @task.user_id = current_user.id #method provided by devise 
+
+		if @task.save
+			redirect_to tasks_path, notice: 'Your post was create succesfully'
+		else
+			render  :new
+		end
 	end
 
 
 	private
 
 	def task_params
-		params.require(:task).permit(:deadline, :description)
+		params.require(:task).permit(:deadline, :description,:priority)
 	end	
 
 	def  set_task

@@ -10,9 +10,9 @@
 
 ## Feature: 
 - X User registration with email password
-- Task manipulation,  X inline editing
+- X Task manipulation, inline editing
 - Comment assosiated with task and inline editing
-- Task order by priority
+- X Task order by priority
 - Task searching with Ajax
 
 
