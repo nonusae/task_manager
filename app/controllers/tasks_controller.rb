@@ -11,7 +11,7 @@ respond_to :html, :json
 
 	def update
 		if @task.update(task_params)
-			redirect_to tasks_path, notice: "Successfully updated task"
+			redirect_to tasks_path
 		else
 			render :edit
 		end
@@ -29,11 +29,12 @@ respond_to :html, :json
 	def create
 		@task = Task.new(task_params)
 		@task.user_id = current_user.id #method provided by devise 
-
-		if @task.save
-			redirect_to tasks_path, notice: 'Your post was create succesfully'
-		else
-			render  :new
+		respond_to do |format|
+			if @task.save
+				format.html { redirect_to tasks_path, notice: 'Your task was create succesfully' }
+			else
+				format.html { render  :new }
+			end
 		end
 	end
 
