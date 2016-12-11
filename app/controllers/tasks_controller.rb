@@ -41,7 +41,7 @@ respond_to :html, :json
 		respond_to do |format|
 			if @task.save
 				format.html { redirect_to tasks_path, notice: 'Your task was create succesfully' }
-				format.js {render :create }
+				format.js {render :create, notice: 'Your task was create succesfully' }
 			else
 				format.html { render  :new }
 				format.js { render :create , notice: 'There is some error cannot create new task'}
