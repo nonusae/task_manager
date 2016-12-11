@@ -36,11 +36,15 @@ respond_to :html, :json
 	def create
 		@task = Task.new(task_params)
 		@task.user_id = current_user.id #method provided by devise 
+		@tasks = Task.all.order('priority asc')
+
 		respond_to do |format|
 			if @task.save
 				format.html { redirect_to tasks_path, notice: 'Your task was create succesfully' }
+				format.js {render :create }
 			else
 				format.html { render  :new }
+				format.js { render :create , notice: 'There is some error cannot create new task'}
 			end
 		end
 	end

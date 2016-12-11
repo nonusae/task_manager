@@ -1,8 +1,6 @@
 $("#tasks").html("<%= j (render @tasks) %>");
 
 if ( "<%=@add_button%>" == "Add") {
-	// console.log("HEY")
-
 	if($("input#search_button").length > 0 ) { 
 		$("#button_span").children("input#search_button").remove();
 		$("#button_span").append("<%= j (render 'tasks/nav_create_new_button') %>") ; 
@@ -14,8 +12,6 @@ if ( "<%=@add_button%>" == "Add") {
 	}
 
 } else if ( ( "<%=@add_button%>" == "Search") ){
-
-	// console.log("HEY2")
 
 	if($("a#add_new_button").length > 0 ) { 
 		$("#button_span").children("a#add_new_button").remove();
