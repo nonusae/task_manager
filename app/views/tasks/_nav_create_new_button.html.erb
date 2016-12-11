@@ -1,0 +1,7 @@
+<% navbar_readonly =  is_on_page?([tasks_path,root_path]) %>
+
+<%= link_to 'Add Task',
+        '/tasks?' + {task: {deadline: 5.days.from_now, description: @new_description.to_s,priority:"10"}}.to_param, 
+        method: :post, 
+        class: 'btn btn-primary btn-block',id: "add_new_button",
+        :readonly => navbar_readonly %>

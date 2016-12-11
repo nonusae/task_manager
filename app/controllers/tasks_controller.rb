@@ -4,6 +4,13 @@ respond_to :html, :json
 
 	def index
 		@tasks = Task.search(params[:search]).order('priority asc')
+		@new_description = params[:search]
+		if @tasks.count == 0
+			puts "in loop"
+			@add_button = "Add"
+		else
+			@add_button = "Search"
+		end
 	end
 
 	def edit

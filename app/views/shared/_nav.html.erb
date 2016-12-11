@@ -11,9 +11,9 @@
             <span class="input-group-addon" style="width:1%;">
                 <%= link_to "", new_task_path, class: "glyphicon glyphicon-plus" %>
             </span>
-            <%= text_field_tag :search,nil,class: "form-control",:readonly => navbar_readonly, placeholder: "Search Here",autocomplete: :off  %>
-            <span class="input-group-btn" style="width:1%;">
-              <%= submit_tag 'Add Task', class: 'btn btn-primary btn-block',:readonly => navbar_readonly %>
+            <%= text_field_tag :search,nil,class: "form-control",:readonly => navbar_readonly, placeholder: "Search or Add new task",autocomplete: :off  %>
+            <span class="input-group-btn" style="width:1%;", id = "button_span">
+              <%= render 'tasks/search_button' %>
             </span>
           </div>
         </div>

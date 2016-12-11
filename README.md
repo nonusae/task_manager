@@ -21,3 +21,4 @@
 
 
 ## Refactor TODOS:
+- Refactor some javascript code in js.erb
