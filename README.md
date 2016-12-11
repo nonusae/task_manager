@@ -22,3 +22,9 @@
 
 ## Refactor TODOS:
 - Refactor some javascript code in js.erb
+
+## Bug TOFIXS:
+- Some Bug on adding comment form in task dropdown 
+  - Not working properly when submit second comment
+- Bug on best in place functionality
+  - inline editing not work after updated element(have to refresh webpage)
