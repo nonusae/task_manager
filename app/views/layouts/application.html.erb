@@ -11,6 +11,8 @@
 		<div class="col-md-12">
 			<%= render 'shared/nav' %>
 			<%= yield %>
+
+		<%= js add_gritter(flash[:notice], title: "Task Manager Notification", sticky: false) %>			
 		</div>
 	</div>
 

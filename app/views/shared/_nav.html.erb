@@ -1,17 +1,19 @@
+<% navbar_readonly =  is_on_page?([tasks_path,root_path]) %>
+
 <div class = 'logo'>
   <h1>Task Manager</h1>
 </div>
 
-<div class="nav navbar-default">     
+<div class="nav navbar-default">
      <%= form_tag tasks_path , :method => 'get',id: "tasks_search", class: "navbar-form" do %>
         <div class="form-group" style="display:inline;">
           <div class="input-group" style="display:table;">
             <span class="input-group-addon" style="width:1%;">
                 <%= link_to "", new_task_path, class: "glyphicon glyphicon-plus" %>
             </span>
-            <%= text_field_tag :search,nil,class: "form-control",disabled: not_on_page?(tasks_path) , placeholder: "Search Here",autocomplete: :off  %>
+            <%= text_field_tag :search,nil,class: "form-control",:readonly => navbar_readonly, placeholder: "Search Here",autocomplete: :off  %>
             <span class="input-group-btn" style="width:1%;">
-              <%= submit_tag 'Add Task', class: 'btn btn-primary btn-block',disabled: not_on_page?(tasks_path) %>
+              <%= submit_tag 'Add Task', class: 'btn btn-primary btn-block',:readonly => navbar_readonly %>
             </span>
           </div>
         </div>

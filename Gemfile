@@ -18,6 +18,8 @@ gem 'best_in_place', '~> 3.1'
 
 gem 'responder', '~> 0.2.4'
 
+gem "gritter", "1.2.0"
+
 
 
 
