@@ -6,15 +6,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class = "container col-xs-8 col-xs-offset-2">
+<body class = "container col-xs-8 col-xs-offset-2"> 
+
 	<div class = "row">
-		<div class="col-md-12">
+		<div class="col-md-15" >
 			<%= render 'shared/nav' %>
 			<%= yield %>
 
 		<%= js add_gritter(flash[:notice], title: "Task Manager Notification", sticky: false,time: 2000) %>			
 		</div>
 	</div>
-
 </body>
 </html>

@@ -2,6 +2,12 @@
 
  ## Key requirement: create web app that can crate task edit and comment
 
+## Project Setup:
+- `git clone` the project
+- `bundle install`
+- `bundle exec rake db:setup` this will also seed the database
+- `rails s`
+
 ## Models:
 -  X Task -> description:text deadline:date priority:integer
 -  X Comment -> content:text
