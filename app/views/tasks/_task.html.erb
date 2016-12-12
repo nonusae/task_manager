@@ -1,7 +1,8 @@
 <tr class= "<%= task.is_late? %>">
-	<td class="text-center">
-		<span class= "glyphicon glyphicon-th-list"></span>
+	<td class="text-center", id="checkbox-td-<%= task.id %>">
+		<span class= "glyphicon glyphicon-th-list check_box_before", data-id= <%= task.id %> ></span>
 	</td>
+
 	<td class="col-md-8", id= "task_row_<%= task.id.to_s %>">
 		<%= best_in_place task, :description, as: :textarea %>
 	</td>

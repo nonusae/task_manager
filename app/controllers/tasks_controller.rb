@@ -49,6 +49,12 @@ respond_to :html, :json
 		end
 	end
 
+	def multiple_delete
+		@tasks_id = params[:task_ids]
+		Task.where(:id => @tasks_id ).destroy_all
+
+		redirect_to tasks_path
+	end
 
 	private
 

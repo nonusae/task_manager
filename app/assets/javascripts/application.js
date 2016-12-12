@@ -21,8 +21,18 @@
 
 
 $(function() {
+
+  $(".check_box_before").click(function() {
+	task_id = $(this).data("id");
+	$("#checkbox-td-"+task_id).html('<input type="checkbox" name="task_ids[]" id="task_ids_" value='+task_id+'>');
+	$("#delete-tasks-button").show();
+  });
+
+
   $("#tasks_search input").keyup(function() {
     $.get($("#tasks_search").attr("action"), $("#tasks_search").serialize(), null, "script");
     return false;
   });
+
+
 });
