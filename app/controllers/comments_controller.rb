@@ -13,8 +13,8 @@ respond_to :html, :json ,:js
 
 		if @comment.save
 			# redirect_to tasks_path , notice: 'Your post was create succesfully'
-				# render :file => "comments/comments_refresher.js.erb" 	
-				redirect_to tasks_path		
+				render :file => "comments/comments_refresher.js.erb" 	
+				# redirect_to tasks_path		
 			else
 				# render :file => "comments/comments_refresher.js.erb" 
 				render :new		
@@ -47,9 +47,18 @@ respond_to :html, :json ,:js
 		render :file => "comments/comments_refresher.js.erb" , notice: 'Your comment was deleted succesfully'
 	end
 
+	def save_comment
+		@task_id = params[:task_id]
+		# @new_comment_id = (Comment.last.id)+1
+		render 'save_comment'
+	end
 
-
-
+	def get_last_comment_id_plus
+		@new_comment_ids = Comment.last.id+1
+		respond_to do |format|
+			format.json {render json: @new_comment_ids}
+		end
+	end
 
 
 	private

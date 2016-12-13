@@ -1,6 +1,7 @@
 
 
 <td class="col-md-3", id= "add-on-text-<%= @task_id %>" >
+	<div id= "comments_list_section_<%= @task_id %>">
 	<hr>
 	<% if @comments.count > 0 %>
 		<% @comments.each do |comment| %>
@@ -12,5 +13,7 @@
 		<hr>
 		<% end %>
 	<% end %>	
-	<%= render 'comments/comment_form' %>
+	</div>
+	<%# render 'comments/comment_form' %>
+	<%= render 'comments/new_comment_form' %>
 </td>

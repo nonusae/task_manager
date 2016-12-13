@@ -1,0 +1,48 @@
+
+task_id = <%= @task_id %>
+
+comment_content = $("#comment_area_"+task_id).val()
+console.log(comment_content)
+
+
+$.ajax({
+	type: 'GET',
+	url: '/comments/get_last_comment_id_plus',
+	dataType:"json",
+	success:function(result){
+		new_comment_id = result
+		console.log(new_comment_id)
+
+		html_string_1 ='<span data-bip-type="textarea" data-bip-attribute="content" data-bip-object="comment" data-bip-original-content='+comment_content+' data-bip-skip-blur="false" data-bip-url="/comments/'+ new_comment_id +'" data-bip-value='+comment_content+' class="best_in_place" id="best_in_place_comment_'+ new_comment_id +'_content">'+comment_content+'</span>' ; 
+		html_string_2 = '<a id="delete_comment_<%= @task_id %>_from_index" data-confirm="Are you sure ?" class="glyphicon glyphicon-trash" data-remote="true" rel="nofollow" data-method="delete" href="/comments/'+ new_comment_id +'"></a>'     
+		html_string_3 = '<div class="col-md-offset-10"><span> <a href="#">test@test.com</a></span></div><hr>'  
+		html_string = html_string_1+html_string_2+html_string_3
+		console.log(html_string)
+
+		$.ajax({
+			type: 'POST',
+			url: '/comments',
+			dataType: 'JSON',
+			data: {
+				comment: {
+					content: comment_content,
+					task_id: task_id
+				},
+
+    		success: function(){
+        		alert('success')
+				// $("#task_row_<%= @task_id %>").children("td").remove();
+				$("#comments_list_section_<%= @task_id %>").append(html_string)
+      		}		
+			}
+		});
+
+
+  }
+});
+
+
+
+
+
+
