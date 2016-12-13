@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
 	belongs_to :user
-	has_many :comments
+	has_many :comments, dependent: :destroy
 	validates_presence_of :description, :deadline
 	# attr_access
 
