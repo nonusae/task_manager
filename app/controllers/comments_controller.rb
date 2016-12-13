@@ -13,10 +13,12 @@ respond_to :html, :json ,:js
 
 		if @comment.save
 			# redirect_to tasks_path , notice: 'Your post was create succesfully'
-			render :file => "comments/comments_refresher.js.erb" 
-		else
-			render :file => "comments/comments_refresher.js.erb"		
-		end		
+				# render :file => "comments/comments_refresher.js.erb" 	
+				redirect_to tasks_path		
+			else
+				# render :file => "comments/comments_refresher.js.erb" 
+				render :new		
+		end	
 	end
 
 	def edit

@@ -30,7 +30,9 @@
 - Refactor some javascript code in js.erb
 
 ## Bug TOFIXS:
-- Some Bug on adding comment form in task dropdown 
-  - Not working properly when submit second comment
+- Comment adding form(non-reload feature) now working properly after implement multiple delete checkboxs function
+  - Tempolary fix the problem by use redirect to tasks index page instead
+  - for more information clone `commit f81e5b098af29c46b5088fc0ba499bd9f75ec10f`
 - Bug on best in place functionality
-  - inline editing not work after updated element(have to refresh webpage)
+  - inline editing not work after updated element(have to refresh webpage)`
+

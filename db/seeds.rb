@@ -13,7 +13,3 @@ Task.create(description: "Write HTML & CSS", deadline: 3.days.ago ,priority: 5, 
 Task.create(description: "Add Javascript to implement adding / editing / removing for todo items and list taking into account as more uses cases as possible",deadline: 11.days.from_now, priority: 3, user_id: 3)
 
 
-
-	<td class="text-center", id="checkbox-td-<%= task.id %>, style="display:none" ">
-		<span class= "glyphicon glyphicon-th-list check_box_before", data-id= <%= task.id %> ></span>
-	</td>
